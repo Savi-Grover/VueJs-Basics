@@ -1,112 +1,17 @@
 <template>
-  <div>
-    My name is {{name}} and I am {{ age }}  years young.
-    <div v-text="channel"></div>
-    <h2 v-bind:id="headingId">Heading</h2>
-    <button v-bind:disabled="isDisabled">checkButton</button>
-    <h2 class="underline">Under lined text from style class</h2>
-    <h2 v-bind:class="Status">Status</h2>
-    <h2 class="underline" v-bind:class="Status">2 classes</h2>
-    <h2 v-bind:class="isPromoted && 'promoted'">Promoted Movie</h2>
-    <h2 v-bind:class="isSoldout ? 'sold-out' : 'new'">Sold out/new</h2>
-    <h2 v-bind:class="['new','promoted']" >2 classes </h2>
-    <h2 v-bind:class="[isPromoted && 'promoted',isSoldout ? 'sold-out': 'new']" >Conditional Array</h2>
-    <h2 v-bind:class="{
-      promoted : isPromoted,
-      new : !isSoldout,
-      'sold-out': isSoldout
-     }">object conditional classes</h2>
-
-    <h2 v-bind:style="{
-      color: highlightedcolor,
-      'font-size': headersize +'px'
-    }">Inline style</h2>
-
-    <h2 v-bind:style="headerstyleobject">Calling headerstyle object data </h2>
-    <h2 v-bind:style="[baseStyle,successStyle]">Array  object data </h2>
-    <h2 v-if="num===0">number should be zero</h2>
-    <h2 v-else-if="num<0">number should be negative</h2>
-    <h2 v-else-if="num>0">number should be positive</h2>
-    <h2 v-else>is not number</h2>
-
-    <template v-if="display">
-      <h2>{{name}} is {{age }} years old</h2>
-
-    </template>
-    <h2 v-show="display">v show condition</h2> 
-    <!-- will always show at DOM where v-if not show at DOM if false-->
-    <!--Rendering list, arrays, arrays of objects below-->
-    <h2 v-for="name in names" :key="name">{{ name }}</h2>
-    <h2 v-for="(name, index) in names" :key="name">{{ index }} {{ name }}</h2>
-    <h2 v-for="name in fullnames" :key="name.first">{{ name.first }} {{ name.last }}</h2>
-  
-  <template v-for="actor in actors" :key="actor.name">
-    <h2>{{ actor.name }}</h2>
-    <h3 v-for="movie in actor.movies" :key="movie">{{ movie }}</h3>
+ <template v-for="name in names" :key="name">
+    <h2 v-if="name === 'bruce'">{{ name }}</h2>
   </template>
-  <h2 v-for="value in myInfo" :key="value">{{ value }}</h2>
-  <h2 v-for="(value, key, index) in myInfo" :key="value">{{index}} {{key}} {{ value }}</h2>
-  <template v-for="name in names" :key="name">
-  <h2> {{ name }}</h2>
-  <hr />
-  </template>
-</div>
-
-
-  
 </template>
+
 <script>
 export default {
   name: 'App',
   data(){
     return {
-      num : 50,
-      display : true,
-      //name: "Peter",
       names: ['bruce','clark','diana'],
-      fullnames:[
-        {first: 'bruce', last: 'wayne'},
-        {first: 'clark', last: 'kent'},
-        {first: 'princess', last: 'diana'},
-      ],
-      actors:[
-        {
-          name: 'Christian Bale',
-          movies: ['Batman', 'The prestige'],
-        },
-        {
-          name: 'Di Caprio',
-          movies:['titanic','inception']
-        },
-      ],
-      myInfo:{
-          name: 'savi',
-          channel: 'vue 3',
-          age: '29',
-      },
-      age: "29",
-      headingId: '3',
-      isDisabled: true,
-      Status:"danger",
-      isPromoted: true,
-      isSoldout:true,
-      isNew: true,
-      highlightedcolor: 'orange',
-      headersize: 120,
-      headerstyleobject: {
-        color: 'green',
-        fontSize: '50px',
-        padding: '20px'
-      },
-      baseStyle:{
-        color: 'green',
-        fontSize: '55px'
-      },
-      successStyle:{
-        padding: '12px'
-      },
-    };
-  }
+    }
+  },
 }
 </script>
 
