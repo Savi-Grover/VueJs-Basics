@@ -1,17 +1,22 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div>
+    My name is {{name}} and I am {{ age }}  years young.
+    <div v-text="channel"></div>
+  </div>
+  
 </template>
-
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
 export default {
   name: 'App',
-  components: {
-    HelloWorld
+  data(){
+    return {
+      name: "Peter",
+      age: "29",
+      channel: "codeInvasion",
+    };
   }
 }
+
 </script>
 
 <style>
