@@ -15,8 +15,15 @@
       promoted : isPromoted,
       new : !isSoldout,
       'sold-out': isSoldout
+     }">object conditional classes</h2>
 
-    }">object conditional classes</h2>
+    <h2 v-bind:style="{
+      color: highlightedcolor,
+      'font-size': headersize +'px'
+    }">Inline style</h2>
+
+    <h2 v-bind:style="headerstyleobject">Calling headerstyle object data </h2>
+    <h2 v-bind:style="[baseStyle,successStyle]">Array  object data </h2>
   </div>
   
 </template>
@@ -32,7 +39,21 @@ export default {
       Status:"danger",
       isPromoted: true,
       isSoldout:true,
-      isNew: true
+      isNew: true,
+      highlightedcolor: 'orange',
+      headersize: 120,
+      headerstyleobject: {
+        color: 'green',
+        fontSize: '50px',
+        padding: '20px'
+      },
+      baseStyle:{
+        color: 'green',
+        fontSize: '55px'
+      },
+      successStyle:{
+        padding: '12px'
+      },
     };
   }
 }
