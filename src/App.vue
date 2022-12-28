@@ -1,10 +1,14 @@
 <template>
- <template v-for="name in names" :key="name">
-  <h2 v-if="name === 'bruce'">{{ name }}</h2>
-  
-  </template>
-  <h2>Add method - {{ add(10,15,20) }}</h2>
-  <h2>Multiply method - {{ multiply(10) }}</h2>
+<h2>{{ name }}</h2>
+<div><button v-on:mouseover="name = 'Batman'">Change name</button>
+</div>
+
+<h2>{{ count }}</h2>
+
+
+  <button v-on:click="increment">Increment</button>
+  <button v-on:click="decrement">Decrement</button>
+
 </template>
 
 <script>
@@ -12,19 +16,20 @@ export default {
   name: 'App',
   data(){
     return {
-      baseMultplier: 5,
-      names: ['bruce','clark','diana'],
+      name: 'Savi',
+      count: 0
     }
   },
 
   methods: {
-    add(a,b,c){
-      return a +b +c
-
+    increment(){
+      return this.count +=1;
     },
-    multiply(num){
-      return num*this.baseMultplier
+
+    decrement(){
+      return this.count -=1;
     }
+
   },
   }
 
