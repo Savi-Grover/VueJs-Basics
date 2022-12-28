@@ -24,6 +24,17 @@
 
     <h2 v-bind:style="headerstyleobject">Calling headerstyle object data </h2>
     <h2 v-bind:style="[baseStyle,successStyle]">Array  object data </h2>
+    <h2 v-if="num===0">number should be zero</h2>
+    <h2 v-else-if="num<0">number should be negative</h2>
+    <h2 v-else-if="num>0">number should be positive</h2>
+    <h2 v-else>is not number</h2>
+
+    <template v-if="display">
+      <h2>{{name}} is {{age }} years old</h2>
+
+    </template>
+    <h2 v-show="display">v show condition</h2> 
+    <!-- will always show at DOM where v-if not show at DOM if false-->
   </div>
   
 </template>
@@ -32,6 +43,8 @@ export default {
   name: 'App',
   data(){
     return {
+      num : 50,
+      display : true,
       name: "Peter",
       age: "29",
       headingId: '3',
