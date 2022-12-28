@@ -35,7 +35,24 @@
     </template>
     <h2 v-show="display">v show condition</h2> 
     <!-- will always show at DOM where v-if not show at DOM if false-->
-  </div>
+    <!--Rendering list, arrays, arrays of objects below-->
+    <h2 v-for="name in names" :key="name">{{ name }}</h2>
+    <h2 v-for="(name, index) in names" :key="name">{{ index }} {{ name }}</h2>
+    <h2 v-for="name in fullnames" :key="name.first">{{ name.first }} {{ name.last }}</h2>
+  
+  <template v-for="actor in actors" :key="actor.name">
+    <h2>{{ actor.name }}</h2>
+    <h3 v-for="movie in actor.movies" :key="movie">{{ movie }}</h3>
+  </template>
+  <h2 v-for="value in myInfo" :key="value">{{ value }}</h2>
+  <h2 v-for="(value, key, index) in myInfo" :key="value">{{index}} {{key}} {{ value }}</h2>
+  <template v-for="name in names" :key="name">
+  <h2> {{ name }}</h2>
+  <hr />
+  </template>
+</div>
+
+
   
 </template>
 <script>
@@ -45,7 +62,28 @@ export default {
     return {
       num : 50,
       display : true,
-      name: "Peter",
+      //name: "Peter",
+      names: ['bruce','clark','diana'],
+      fullnames:[
+        {first: 'bruce', last: 'wayne'},
+        {first: 'clark', last: 'kent'},
+        {first: 'princess', last: 'diana'},
+      ],
+      actors:[
+        {
+          name: 'Christian Bale',
+          movies: ['Batman', 'The prestige'],
+        },
+        {
+          name: 'Di Caprio',
+          movies:['titanic','inception']
+        },
+      ],
+      myInfo:{
+          name: 'savi',
+          channel: 'vue 3',
+          age: '29',
+      },
       age: "29",
       headingId: '3',
       isDisabled: true,
