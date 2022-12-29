@@ -1,13 +1,13 @@
 <template>
 <h2>{{ name }}</h2>
-<div><button v-on:mouseover="name = 'Batman'">Change name</button>
+<div><button @click="changename($event),increment($event)" >Change name</button>
 </div>
 
 <h2>{{ count }}</h2>
 
 
-  <button v-on:click="increment">Increment</button>
-  <button v-on:click="decrement">Decrement</button>
+  <button @click="increment">Increment</button>
+  <button @click="decrement">Decrement</button>
 
 </template>
 
@@ -28,6 +28,10 @@ export default {
 
     decrement(){
       return this.count -=1;
+    },
+
+    changename(){
+      this.name= 'Batman'
     }
 
   },
